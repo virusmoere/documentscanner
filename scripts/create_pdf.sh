@@ -48,7 +48,7 @@ for PAGE in `ls "${INPUT_DIR}"/page*`; do
     fi
 
     # Run unpaper on the images
-    unpaper --overwrite --dpi 300 "${INPUT_DIR}"/"${FILE}" "${INPUT_DIR}"/unpaper-"${FILE}"
+    unpaper --overwrite ${UNPAPER_PARAM} "${INPUT_DIR}"/"${FILE}" "${INPUT_DIR}"/unpaper-"${FILE}"
 
     # Convert to PDF and perform OCR
     tesseract "${INPUT_DIR}"/unpaper-"${FILE}" "${INPUT_DIR}"/ocred-"${FILE}" -l deu pdf
