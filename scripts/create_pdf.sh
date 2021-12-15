@@ -55,7 +55,8 @@ for PAGE in `ls "${INPUT_DIR}"/page*`; do
 done
 
 # Check if at least one page is ready
-if [ -f "${INPUT_DIR}"/ocred-*.pdf ]; then
+if ls ${INPUT_DIR}/ocred-*.pdf 1> /dev/null 2>&1; then
+# if [ -f "${INPUT_DIR}"/ocred-*.pdf ]; then
     # Yes: Join PDFs
     pdfunite "${INPUT_DIR}"/ocred-*.pdf "${INPUT_DIR}"/preview.pdf
 fi
